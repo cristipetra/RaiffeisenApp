@@ -21,7 +21,9 @@ public class UsersServices: UsersServicesProtocol {
     }
     
     public func getUsers() async throws -> [User] {
-        return []
+        
+        try await Task.sleep(for: .seconds(3))
+        return MockUser.samples
     }
     
 }

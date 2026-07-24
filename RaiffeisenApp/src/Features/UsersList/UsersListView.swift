@@ -7,13 +7,9 @@
 
 import SwiftUI
 
-struct UsersListView: View {
+struct UsersListView<VM: UsersListViewModelling>: View {
     
-    @State var viewModel: UsersListViewModelling
-    
-    public init(viewModel: UsersListViewModelling) {
-        self.viewModel = viewModel
-    }
+    @State var viewModel: VM
     
     var body: some View {
         NavigationStack {
@@ -23,6 +19,32 @@ struct UsersListView: View {
                     .listRowSeparator(.visible)
             }
             .listStyle(.plain)
+            .overlay {
+                if viewModel.isLoading {
+                    ProgressView("Loading users...")
+                        .controlSize(.large)
+                        .tint(Color(red: 247/255, green: 202/255, blue: 62/255))
+                } else if viewModel.users.isEmpty {
+                    ContentUnavailableView(
+                        "No Users",
+                        systemImage: "person.slash",
+                        description: Text("There are no users to display right now.")
+                    )
+                }
+            }
+            .alert(
+                "Error",
+                isPresented: Binding(
+                    get: { !viewModel.errorMessage.isEmpty },
+                    set: { isPresented in
+                        if !isPresented { viewModel.errorMessage = "" }
+                    }
+                )
+            ) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text(viewModel.errorMessage)
+            }
             
             // MARK: - Navigation Bar Configuration
             .navigationTitle("Users")

@@ -24,6 +24,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0875585530134A8600CEEB1B /* Model */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Model; sourceTree = "<group>"; };
+		0875585630134F9300CEEB1B /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		088A228C30125A1100E28275 /* RaiffeisenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaiffeisenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		088A229930125A1400E28275 /* RaiffeisenAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaiffeisenAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		088A22A330125A1400E28275 /* RaiffeisenAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaiffeisenAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,8 @@
 		088A228330125A1100E28275 = {
 			isa = PBXGroup;
 			children = (
+				0875585630134F9300CEEB1B /* Networking */,
+				0875585530134A8600CEEB1B /* Model */,
 				088A228E30125A1100E28275 /* RaiffeisenApp */,
 				088A229C30125A1400E28275 /* RaiffeisenAppTests */,
 				088A22A630125A1400E28275 /* RaiffeisenAppUITests */,
@@ -410,7 +414,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = eu.artep.assignment.ing.RaiffeisenApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -443,7 +447,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = eu.artep.assignment.ing.RaiffeisenApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;

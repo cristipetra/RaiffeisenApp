@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		08C2906130139029000747D2 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = 08C2906030139029000747D2 /* Model */; };
+		08C290633013902C000747D2 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 08C290623013902C000747D2 /* Networking */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		088A229A30125A1400E28275 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -54,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08C290633013902C000747D2 /* Networking in Frameworks */,
+				08C2906130139029000747D2 /* Model in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +89,7 @@
 				088A228E30125A1100E28275 /* RaiffeisenApp */,
 				088A229C30125A1400E28275 /* RaiffeisenAppTests */,
 				088A22A630125A1400E28275 /* RaiffeisenAppUITests */,
+				08C2905F30139029000747D2 /* Frameworks */,
 				088A228D30125A1100E28275 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +102,13 @@
 				088A22A330125A1400E28275 /* RaiffeisenAppUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		08C2905F30139029000747D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,6 +131,8 @@
 			);
 			name = RaiffeisenApp;
 			packageProductDependencies = (
+				08C2906030139029000747D2 /* Model */,
+				08C290623013902C000747D2 /* Networking */,
 			);
 			productName = RaiffeisenApp;
 			productReference = 088A228C30125A1100E28275 /* RaiffeisenApp.app */;
@@ -584,6 +601,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		08C2906030139029000747D2 /* Model */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Model;
+		};
+		08C290623013902C000747D2 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 088A228430125A1100E28275 /* Project object */;
 }

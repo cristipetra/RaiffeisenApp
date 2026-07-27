@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		08C2906130139029000747D2 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = 08C2906030139029000747D2 /* Model */; };
+		08C290633013902C000747D2 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 08C290623013902C000747D2 /* Networking */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		088A229A30125A1400E28275 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0875585530134A8600CEEB1B /* Model */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Model; sourceTree = "<group>"; };
+		0875585630134F9300CEEB1B /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		088A228C30125A1100E28275 /* RaiffeisenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaiffeisenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		088A229930125A1400E28275 /* RaiffeisenAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaiffeisenAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		088A22A330125A1400E28275 /* RaiffeisenAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaiffeisenAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08C290633013902C000747D2 /* Networking in Frameworks */,
+				08C2906130139029000747D2 /* Model in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,9 +84,12 @@
 		088A228330125A1100E28275 = {
 			isa = PBXGroup;
 			children = (
+				0875585630134F9300CEEB1B /* Networking */,
+				0875585530134A8600CEEB1B /* Model */,
 				088A228E30125A1100E28275 /* RaiffeisenApp */,
 				088A229C30125A1400E28275 /* RaiffeisenAppTests */,
 				088A22A630125A1400E28275 /* RaiffeisenAppUITests */,
+				08C2905F30139029000747D2 /* Frameworks */,
 				088A228D30125A1100E28275 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +102,13 @@
 				088A22A330125A1400E28275 /* RaiffeisenAppUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		08C2905F30139029000747D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +131,8 @@
 			);
 			name = RaiffeisenApp;
 			packageProductDependencies = (
+				08C2906030139029000747D2 /* Model */,
+				08C290623013902C000747D2 /* Networking */,
 			);
 			productName = RaiffeisenApp;
 			productReference = 088A228C30125A1100E28275 /* RaiffeisenApp.app */;
@@ -410,7 +431,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = eu.artep.assignment.ing.RaiffeisenApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -443,7 +464,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = eu.artep.assignment.ing.RaiffeisenApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -464,7 +485,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BZZBJFJ438;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = eu.artep.assignment.ing.RaiffeisenAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -486,7 +507,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BZZBJFJ438;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = eu.artep.assignment.ing.RaiffeisenAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -580,6 +601,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		08C2906030139029000747D2 /* Model */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Model;
+		};
+		08C290623013902C000747D2 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 088A228430125A1100E28275 /* Project object */;
 }

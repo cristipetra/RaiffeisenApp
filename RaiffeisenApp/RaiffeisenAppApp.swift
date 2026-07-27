@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct RaiffeisenAppApp: App {
+    
+    @State private var appDIContainer = AppDependencyContainer()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppRootView(container: appDIContainer)
         }
     }
 }

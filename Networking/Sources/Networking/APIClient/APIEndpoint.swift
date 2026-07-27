@@ -17,10 +17,11 @@ public enum HTTPMethod: String {
 public protocol Endpoint {
     var path: String { get }
     var method: HTTPMethod { get }
+    var queryItems: [URLQueryItem]? { get }
 }
 
 public enum APIEndpoint: Endpoint {
-    case getUsers
+    case getUsers(page: Int, result: Int, seed: String)
     
     public var path: String {
         switch self {
@@ -31,6 +32,17 @@ public enum APIEndpoint: Endpoint {
         
     public var method: HTTPMethod {
         .get
+    }
+    
+    public var queryItems: [URLQueryItem]? {
+        switch self {
+        case .getUsers(let page, let result, let seed):
+            return [
+                URLQueryItem(name: "page", value: "\(page)"),
+                URLQueryItem(name: "result", value: "\(result)"),
+                URLQueryItem(name: "seed", value: "\(seed)")
+            ]
+        }
     }
     
 }

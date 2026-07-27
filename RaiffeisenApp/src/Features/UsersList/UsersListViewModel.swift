@@ -12,8 +12,12 @@ import Model
 protocol UsersListViewModelling: Observable {
     var users: [User] { get }
     var isLoading: Bool { get }
+    var canLoadMore: Bool { get }
     var errorMessage: String { get set }
+    var prefetchThreshold: Int { get }
     func fetchUsers() async
+    func fetchNextPage() async
+    func onUserRowAppeared(_ user: User)
 }
 
 @Observable
@@ -22,6 +26,12 @@ class UsersListViewModel: UsersListViewModelling {
     
     private(set) var users: [User] = []
     private(set) var isLoading: Bool = false
+    private(set) var canLoadMore: Bool = true
+    private(set) var page: Int = 0
+    private(set) var prefetchThreshold: Int = 3
+    private let results: Int = 20
+    private let maxPages = 3
+    
     var errorMessage: String = ""
     
     private let services: UsersServicesProtocol
@@ -32,18 +42,37 @@ class UsersListViewModel: UsersListViewModelling {
     
     func fetchUsers() async {
         print("fetch users")
+        guard !isLoading, canLoadMore else { return }
         isLoading = true
-        
-        defer {
-            isLoading = false
-        }
+        defer { isLoading = false }
         
         do {
-            users = try await services.getUsers()
+            let userResponse = try await services.getUsers(page: page, results: results)
+            let newUsers = userResponse.results.filter { candidate in
+                !users.contains { $0.id == candidate.id }
+            }
+            users.append(contentsOf: newUsers)
+            canLoadMore = page < maxPages
             print(users)
         } catch {
             errorMessage = "Error downloading users list. Please try again!";
             print("error message")
+        }
+    }
+    
+    func fetchNextPage() async {
+        guard !isLoading, canLoadMore else { return }
+        
+        page += 1
+        await fetchUsers()
+    }
+    
+    func onUserRowAppeared(_ user: User) {
+        guard let index = users.firstIndex(where: { $0.id == user.id }) else { return }
+        if index == users.count - prefetchThreshold {
+            Task {
+                await fetchNextPage()
+            }
         }
     }
     

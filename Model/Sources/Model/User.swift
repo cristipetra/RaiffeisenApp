@@ -11,9 +11,11 @@ public struct User: Codable, Hashable, Identifiable, Sendable {
     public let registered: DateInfo
     public let phone: String
     public let cell: String
-    public let id: IdentificationDocument
+    public let identification: IdentificationDocument
     public let picture: ImageSet
     public let nat: String
+    
+    public var id: UUID { login.uuid }
 
     public init(
         gender: Gender,
@@ -25,7 +27,7 @@ public struct User: Codable, Hashable, Identifiable, Sendable {
         registered: DateInfo,
         phone: String,
         cell: String,
-        id: IdentificationDocument,
+        identification: IdentificationDocument,
         picture: ImageSet,
         nat: String
     ) {
@@ -38,8 +40,23 @@ public struct User: Codable, Hashable, Identifiable, Sendable {
         self.registered = registered
         self.phone = phone
         self.cell = cell
-        self.id = id
+        self.identification = identification
         self.picture = picture
         self.nat = nat
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case gender
+        case name
+        case location
+        case email
+        case login
+        case dob
+        case registered
+        case phone
+        case cell
+        case identification = "id"
+        case picture
+        case nat
     }
 }

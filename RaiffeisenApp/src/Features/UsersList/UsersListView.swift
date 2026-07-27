@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Model
 
 struct UsersListView<VM: UsersListViewModelling>: View {
     
@@ -17,6 +18,9 @@ struct UsersListView<VM: UsersListViewModelling>: View {
                 UserRowView(user: user)
                     .listRowInsets(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
                     .listRowSeparator(.visible)
+                    .onAppear {
+                        viewModel.onUserRowAppeared(user)
+                    }
             }
             .listStyle(.plain)
             .overlay {

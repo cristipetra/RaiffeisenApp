@@ -13,12 +13,9 @@ public struct APIConfiguration: Sendable {
         self.baseURL = baseURL
     }
     
-    public static let development = APIConfiguration(
-        baseURL: URL(string: "https://randomuser.me/api/")!)
-    public static let production  = APIConfiguration(
-        baseURL: URL(string: "https://randomuser.me/api/")!)
+    public static let development = APIConfiguration(baseURL: URL(string: "https://randomuser.me/api/")!)
+    public static let production  = APIConfiguration(baseURL: URL(string: "https://randomuser.me/api/")!)
 }
-
 
 public extension APIConfiguration {
     func url(for endpoint: APIEndpoint) -> URL {

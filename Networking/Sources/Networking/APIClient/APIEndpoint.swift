@@ -39,7 +39,7 @@ public enum APIEndpoint: Endpoint {
         case .getUsers(let page, let result, let seed):
             return [
                 URLQueryItem(name: "page", value: "\(page)"),
-                URLQueryItem(name: "result", value: "\(result)"),
+                URLQueryItem(name: "results", value: "\(result)"),
                 URLQueryItem(name: "seed", value: "\(seed)")
             ]
         }

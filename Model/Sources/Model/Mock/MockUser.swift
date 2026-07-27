@@ -35,7 +35,7 @@ public enum MockUser {
         registered: DateInfo(date: date("2018-10-18T04:05:51.990Z"), age: 7),
         phone: "031-623-5189",
         cell: "081-807-8083",
-        id: IdentificationDocument(name: "PPS", value: "1101776T"),
+        identification: IdentificationDocument(name: "PPS", value: "1101776T"),
         picture: ImageSet(
             large: URL(string: "https://randomuser.me/api/portraits/women/88.jpg")!,
             medium: URL(string: "https://randomuser.me/api/portraits/med/women/88.jpg")!,
@@ -70,7 +70,7 @@ public enum MockUser {
         registered: DateInfo(date: date("2002-04-03T08:57:47.321Z"), age: 24),
         phone: "0100-8354415",
         cell: "0172-4195644",
-        id: IdentificationDocument(name: "SVNR", value: "18 010860 F 495"),
+        identification: IdentificationDocument(name: "SVNR", value: "18 010860 F 495"),
         picture: ImageSet(
             large: URL(string: "https://randomuser.me/api/portraits/men/1.jpg")!,
             medium: URL(string: "https://randomuser.me/api/portraits/med/men/1.jpg")!,

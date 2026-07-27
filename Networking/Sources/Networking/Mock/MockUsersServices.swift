@@ -15,8 +15,8 @@ public class MockUsersServices: UsersServicesProtocol {
         self.apiClient = apiClient
     }
     
-    public func getUsers() async throws -> [User] {
-        return MockUser.samples
+    public func getUsers(page: Int, results: Int) async throws -> UserResponse {
+        MockUserResponse.defaultResponse
     }
     
 }

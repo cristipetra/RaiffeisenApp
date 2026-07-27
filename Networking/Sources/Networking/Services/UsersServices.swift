@@ -10,7 +10,7 @@ import Model
 import Model
 
 public protocol UsersServicesProtocol {
-    func getUsers() async throws -> [User]
+    func getUsers(page: Int, results: Int) async throws -> UserResponse
 }
 
 public class UsersServices: UsersServicesProtocol {
@@ -20,10 +20,10 @@ public class UsersServices: UsersServicesProtocol {
         self.apiClient = apiClient
     }
     
-    public func getUsers() async throws -> [User] {
-        
-        try await Task.sleep(for: .seconds(3))
-        return MockUser.samples
+    public func getUsers(page: Int, results: Int) async throws -> UserResponse {
+        return try await apiClient.send(
+            endpoint: .getUsers(page: page, result: results, seed: "abc")
+        )
     }
     
 }

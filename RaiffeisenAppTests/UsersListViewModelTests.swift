@@ -23,7 +23,7 @@ struct UsersListViewModelTests {
         #expect(viewModel.users.isEmpty)
         #expect(viewModel.isLoading == false)
         #expect(viewModel.errorMessage.isEmpty)
-        #expect(viewModel.page == 0)
+        #expect(viewModel.page == 1)
         
     }
     

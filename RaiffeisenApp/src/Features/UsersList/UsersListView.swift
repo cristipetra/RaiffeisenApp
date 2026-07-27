@@ -15,14 +15,19 @@ struct UsersListView<VM: UsersListViewModelling>: View {
     var body: some View {
         NavigationStack {
             List(viewModel.users) { user in
-                UserRowView(user: user)
-                    .listRowInsets(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
-                    .listRowSeparator(.visible)
-                    .onAppear {
-                        viewModel.onUserRowAppeared(user)
-                    }
+                NavigationLink(value: user) {
+                    UserRowView(user: user)
+                }
+                .listRowInsets(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
+                .listRowSeparator(.visible)
+                .onAppear {
+                    viewModel.onUserRowAppeared(user)
+                }
             }
             .listStyle(.plain)
+            .navigationDestination(for: User.self) { user in
+                UserDetailView(viewModel: UserDetailViewModel(user: user))
+            }
             .overlay {
                 if viewModel.isLoading {
                     ProgressView("Loading users...")

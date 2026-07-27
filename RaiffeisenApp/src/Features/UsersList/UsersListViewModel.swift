@@ -27,7 +27,7 @@ class UsersListViewModel: UsersListViewModelling {
     private(set) var users: [User] = []
     private(set) var isLoading: Bool = false
     private(set) var canLoadMore: Bool = true
-    private(set) var page: Int = 0
+    private(set) var page: Int = 1
     private(set) var prefetchThreshold: Int = 3
     private let results: Int = 20
     private let maxPages = 3
@@ -41,7 +41,7 @@ class UsersListViewModel: UsersListViewModelling {
     }
     
     func fetchUsers() async {
-        print("fetch users")
+        print("fetch users for page: \(page)")
         guard !isLoading, canLoadMore else { return }
         isLoading = true
         defer { isLoading = false }

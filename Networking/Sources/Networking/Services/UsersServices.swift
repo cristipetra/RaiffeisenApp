@@ -15,14 +15,16 @@ public protocol UsersServicesProtocol {
 
 public class UsersServices: UsersServicesProtocol {
     private let apiClient: APIClientProtocol
+    private let seed: String
     
-    public init(apiClient: APIClientProtocol) {
+    public init(apiClient: APIClientProtocol, seed: String = "abc") {
         self.apiClient = apiClient
+        self.seed = seed
     }
     
     public func getUsers(page: Int, results: Int) async throws -> UserResponse {
         return try await apiClient.send(
-            endpoint: .getUsers(page: page, result: results, seed: "abc")
+            endpoint: .getUsers(page: page, result: results, seed: seed)
         )
     }
     

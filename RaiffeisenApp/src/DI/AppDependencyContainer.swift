@@ -24,9 +24,5 @@ class AppDependencyContainer: DependencyContainer {
     func makeUsersListViewModel() -> UsersListViewModel {
         UsersListViewModel(services: usersServices)
     }
-    
-    func makeUserDetailsViewModel(user: User) -> UserDetailViewModel {
-        UserDetailViewModel(user: user)
-    }
         
 }
